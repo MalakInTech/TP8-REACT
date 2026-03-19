@@ -3,10 +3,16 @@ import AxiosData from './AxiosData';
 
 function App() {
   return (
-    <div>
-      <h1>TP – Consommer une API avec React</h1>
-      <FetchData />
-      <AxiosData />
+    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
+      <h1>TP React - Consommer une API avec Fetch et Axios</h1>
+
+      <section style={{ marginBottom: '30px' }}>
+        <FetchData />
+      </section>
+
+      <section>
+        <AxiosData />
+      </section>
     </div>
   );
 }

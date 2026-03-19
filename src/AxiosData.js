@@ -2,30 +2,37 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function AxiosData() {
-  const [users, setUsers] = useState([]);        // Liste des utilisateurs
-  const [loading, setLoading] = useState(true);  // État de chargement
-  const [error, setError] = useState(null);      // État d'erreur éventuelle
+  const [listeUsers, setListeUsers] = useState([]);
+  const [chargement, setChargement] = useState(true);
+  const [erreur, setErreur] = useState(null);
 
   useEffect(() => {
-    axios
-      .get('https://jsonplaceholder.typicode.com/users')
-      .then((response) => setUsers(response.data))
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
+    const chargerUsers = async () => {
+      try {
+        const response = await axios.get(
+          'https://jsonplaceholder.typicode.com/users'
+        );
+        setListeUsers(response.data);
+      } catch (err) {
+        setErreur(err.message);
+      } finally {
+        setChargement(false);
+      }
+    };
+
+    chargerUsers();
   }, []);
 
-  if (loading) return <p>Chargement en cours... </p>
-;
-  if (error) return <p>Erreur : {error} </p>
-;
+  if (chargement) return <p>Chargement des utilisateurs...</p>;
+  if (erreur) return <p>Erreur : {erreur}</p>;
 
   return (
     <div>
-      <h2>Utilisateurs chargés avec axios</h2>
+      <h2>Liste des utilisateurs (axios)</h2>
       <ul>
-        {users.map((user) => (
+        {listeUsers.map((user) => (
           <li key={user.id}>
-            {user.name} – {user.email}
+            {user.name} | {user.email}
           </li>
         ))}
       </ul>

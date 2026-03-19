@@ -1,35 +1,40 @@
 import { useState, useEffect } from 'react';
 
 function FetchData() {
-  const [posts, setPosts] = useState([]);       // Liste des articles
-  const [loading, setLoading] = useState(true); // État de chargement
-  const [error, setError] = useState(null);     // État d'erreur éventuelle
+  const [articles, setArticles] = useState([]);
+  const [enChargement, setEnChargement] = useState(true);
+  const [erreurMsg, setErreurMsg] = useState(null);
 
   useEffect(() => {
-    // On démarre le fetch
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Erreur réseau');
-        }
-        return response.json();
-      })
-      .then((data) => setPosts(data))
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []); // Le tableau vide signifie que l'effet ne s'exécute qu'une fois au montage
+    const recupererArticles = async () => {
+      try {
+        const res = await fetch('https://jsonplaceholder.typicode.com/posts');
 
-  if (loading) return <p>Chargement en cours... </p>
-;
-  if (error) return <p>Erreur : {error} </p>
-;
+        if (!res.ok) {
+          throw new Error('Problème lors du chargement');
+        }
+
+        const donnees = await res.json();
+        setArticles(donnees);
+      } catch (e) {
+        setErreurMsg(e.message);
+      } finally {
+        setEnChargement(false);
+      }
+    };
+
+    recupererArticles();
+  }, []);
+
+  if (enChargement) return <p>Chargement des articles...</p>;
+  if (erreurMsg) return <p>Erreur détectée : {erreurMsg}</p>;
 
   return (
     <div>
-      <h2>Articles chargés avec fetch()</h2>
+      <h2>Données récupérées avec fetch</h2>
       <ul>
-        {posts.slice(0, 5).map((post) => (
-          <li key={post.id}>{post.title}</li>
+        {articles.slice(0, 5).map((item) => (
+          <li key={item.id}>{item.title}</li>
         ))}
       </ul>
     </div>
