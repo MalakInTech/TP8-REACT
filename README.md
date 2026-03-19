@@ -30,6 +30,7 @@ Il met en pratique :
 - `AxiosData.js` : récupération des données avec axios
 - `index.js` : point d’entrée
 
+<img width="560" height="524" alt="Capture d&#39;écran 2026-03-19 154736" src="https://github.com/user-attachments/assets/1481fc3e-6ead-49da-bb24-9a133c318fbd" />
 
 
 ---
@@ -86,4 +87,12 @@ Gère les erreurs et le chargement
 ### 📌 Vue générale de l'application
 
 
+<img width="1041" height="784" alt="Capture d&#39;écran 2026-03-19 154956" src="https://github.com/user-attachments/assets/36731655-e885-4fd6-8f53-9e2139ec11d0" />
+
+
+---
+
+## Auteur
+- Nom : Malak El Mallouky
+- Filliere : SIR
 
