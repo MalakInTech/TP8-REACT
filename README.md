@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# TP React - Consommation d’API (fetch & axios)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📌 Description
 
-## Available Scripts
+Ce projet est une application développée avec **React.js** permettant de consommer une API externe.
 
-In the project directory, you can run:
+Il met en pratique :
+- Les requêtes HTTP avec `fetch()`
+- L’utilisation de la librairie `axios`
+- La gestion des états : chargement, données et erreurs
+- L’affichage dynamique de données provenant d’une API
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠 Technologies utilisées
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React.js
+- JavaScript (ES6)
+- Node.js
+- npm
+- Axios
+- API REST (JSONPlaceholder)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📂 Structure du projet
 
-### `npm run build`
+- `App.js` : composant principal
+- `FetchData.js` : récupération des données avec fetch()
+- `AxiosData.js` : récupération des données avec axios
+- `index.js` : point d’entrée
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## ▶️ Exécution du projet
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Créer le projet :
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npx create-react-app tp-api
+cd tp-api
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Installer axios :
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm install axios
+```
 
-## Learn More
+3. Lancer l’application :
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Ouvrir dans le navigateur :  http://localhost:3000
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🧪 Fonctionnement
 
-### Analyzing the Bundle Size
+Au lancement de l’application :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### 🔹 FetchData
 
-### Making a Progressive Web App
+Récupère les articles depuis une API avec fetch()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Affiche un message de chargement
 
-### Advanced Configuration
+Affiche les 5 premiers titres des articles
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### 🔹 AxiosData
 
-### Deployment
+Récupère les utilisateurs avec axios
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Affiche les noms et emails
 
-### `npm run build` fails to minify
+Gère les erreurs et le chargement
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 📸 Captures d’écran
+
+### 📌 Vue générale de l'application
+
+
+
